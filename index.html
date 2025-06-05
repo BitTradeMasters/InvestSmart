@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>𝗜𝗻𝘃𝗲𝘀𝘁𝗦𝗺𝗮𝗿𝘁</title>
+  <title>𝗜𝗻𝘃𝗲𝘀𝘁𝗦𝗺𝗮𝗿𝘁</title>  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,17 +17,21 @@
       color: #fff;
       overflow-x: hidden;
     }
-header {
+
+    header {
       position: relative;
       width: 100%;
-      height: 40vh;
-      overflow: hidden;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0c0c0c;
     }
 
     .slider {
-      position: absolute;
       width: 100%;
       height: 100%;
+      position: relative;
     }
 
     .slide {
@@ -36,19 +40,24 @@ header {
       height: 100%;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-      background-size: cover;
-      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .slide.active {
       opacity: 1;
     }
 
-@media (max-width: 768px) {
-  header {
-    height: 60vh; /* Shorter for phones */
-  }
-}
+    .slide h2 {
+      color: #00c6ff;
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      padding: 0 20px;
+    }
 
     .content {
       padding: 40px 20px;
@@ -147,15 +156,18 @@ header {
     }
 
     @media (max-width: 768px) {
+      .slide h2 {
+        font-size: 1.5rem;
+      }
+      header {
+        height: 40vh;
+      }
       .card-box h1 {
         font-size: 2rem;
       }
       .btn {
         padding: 12px 25px;
         font-size: 1rem;
-      }
-      header {
-        height: 30vh;
       }
       .popup-box h2 {
         font-size: 1.5rem;
@@ -177,11 +189,12 @@ header {
     </div>
   </div>
 
+  <!-- Text Slider Section -->
   <header>
     <div class="slider">
-      <div class="slide active" style="background-image: url('AAAA.PNG');"></div>
-      <div class="slide" style="background-image: url('BBBB.PNG');"></div>
-      <div class="slide" style="background-image: url('CCCC.JPG');"></div>
+      <div class="slide active"><h2>📈 Start Your Investment Journey</h2></div>
+      <div class="slide"><h2>💰 Grow Your Wealth Securely</h2></div>
+      <div class="slide"><h2>🚀 Financial Freedom Starts Here</h2></div>
     </div>
   </header>
 
@@ -191,7 +204,7 @@ header {
       <p>
         𝐈𝐧𝐯𝐞𝐬𝐭𝐢𝐧𝐠 𝐢𝐬𝐧’𝐭 𝐣𝐮𝐬𝐭 𝐚𝐛𝐨𝐮𝐭 𝐦𝐨𝐧𝐞𝐲 — 𝐢𝐭’𝐬 𝐚𝐛𝐨𝐮𝐭 𝐛𝐮𝐢𝐥𝐝𝐢𝐧𝐠 𝐲𝐨𝐮𝐫 𝐟𝐮𝐭𝐮𝐫𝐞. 𝐒𝐭𝐚𝐫𝐭 𝐞𝐚𝐫𝐥𝐲, 𝐬𝐭𝐚𝐲 𝐜𝐨𝐧𝐬𝐢𝐬𝐭𝐞𝐧𝐭, 𝐚𝐧𝐝 𝐥𝐞𝐭 𝐲𝐨𝐮𝐫 𝐦𝐨𝐧𝐞𝐲 𝐠𝐫𝐨𝐰 𝐰𝐢𝐭𝐡 𝐭𝐢𝐦𝐞. 𝐀 𝐬𝐦𝐚𝐫𝐭 𝐢𝐧𝐯𝐞𝐬𝐭𝐦𝐞𝐧𝐭 𝐭𝐨𝐝𝐚𝐲 𝐜𝐚𝐧 𝐠𝐢𝐯𝐞 𝐲𝐨𝐮 𝐭𝐡𝐞 𝐟𝐫𝐞𝐞𝐝𝐨𝐦 𝐚𝐧𝐝 𝐬𝐞𝐜𝐮𝐫𝐢𝐭𝐲 𝐲𝐨𝐮 𝐝𝐫𝐞𝐚𝐦 𝐨𝐟 𝐭𝐨𝐦𝐨𝐫𝐫𝐨𝐰 || 
       </p>
-      <a href="https://bittrademasters.github.io/The-Market-Side" class="btn">𝐆𝐨 𝐭𝐨 𝐒𝐭𝐚𝐫𝐭</a>
+      <a href="https://bittrademasters.github.io/The-Market-Side/" class="btn"> Go to Start</a>
     </div>
   </section>
 
@@ -204,7 +217,7 @@ header {
       slides.forEach(slide => slide.classList.remove("active"));
       index = (index + 1) % slides.length;
       slides[index].classList.add("active");
-    }, 2000); // 2 second per image
+    }, 2000);
 
     // Popup logic
     function closePopup() {
@@ -213,7 +226,7 @@ header {
 
     setTimeout(() => {
       closePopup();
-    }, 5000); // Auto close after 5 sec
+    }, 5000);
   </script>
 
 </body>
